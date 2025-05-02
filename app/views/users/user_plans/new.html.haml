@@ -1,0 +1,33 @@
+.container.my-4
+  .mb-4
+    = link_to '配送プラン詳細に戻る', users_delivery_plan_path(@delivery_plan), class: 'btn btn-outline-secondary'
+
+  %h1.fs-2.mb-4 配送プラン申し込み
+
+  .card.mb-4
+    .card-body
+      %h2.fs-4.mb-3 申し込み内容の確認
+      %dl.row.mb-0
+        %dt.col-sm-3 プラン名
+        %dd.col-sm-9= @delivery_plan.name
+
+        %dt.col-sm-3 配送頻度
+        %dd.col-sm-9= @delivery_plan.delivery_frequency_text
+
+        %dt.col-sm-3 金額
+        %dd.col-sm-9= number_to_currency(@delivery_plan.price, unit: '¥', precision: 0)
+
+  = simple_form_for [:users, @user_plan] do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+    = hidden_field_tag :delivery_plan_id, @delivery_plan.id
+
+    .card.mb-4
+      .card-body
+        .alert.alert-info.mb-0
+          %ul.mb-0
+            %li プランはいつでもキャンセルできます
+            %li 配送開始後に一時停止したい場合は、お問い合わせください
+
+    .text-center
+      = f.button :button, '申し込む', class: 'btn-lg btn-primary', data: { confirm: 'このプランを申し込みますか？' }

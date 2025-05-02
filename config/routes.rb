@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :addresses, only: %i[index new create edit update destroy]
     resources :delivery_plans, only: %i[index show]
+    resources :user_plans, only: %i[index new create destroy]
   end
 
   namespace :admins do

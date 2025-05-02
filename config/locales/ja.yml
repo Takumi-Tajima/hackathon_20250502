@@ -1,6 +1,10 @@
 ---
 ja:
   enumerize:
+    user_plan:
+      status:
+        active: '有効'
+        canceled: 'キャンセル済み'
     delivery_plan:
       delivery_frequency:
         weekly: '1週間に1回'
@@ -9,6 +13,9 @@ ja:
         monthly: '4週間に1回'
   activerecord:
     attributes:
+      user_plan:
+        status: 契約状態
+        created_at: 契約日
       delivery_plan:
         name: プラン名
         description: 説明

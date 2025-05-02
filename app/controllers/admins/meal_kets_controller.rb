@@ -19,7 +19,7 @@ class Admins::MealKetsController < Admins::ApplicationController
     @meal_ket = MealKet.new(meal_ket_params)
 
     if @meal_ket.save
-      redirect_to admins_meal_ket_path(@meal_ket), notice: '食材が正常に作成されました'
+      redirect_to admins_meal_ket_path(@meal_ket), notice: 'ミールキットが正常に作成されました'
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Admins::MealKetsController < Admins::ApplicationController
 
   def update
     if @meal_ket.update(meal_ket_params)
-      redirect_to admins_meal_ket_path(@meal_ket), notice: '食材が正常に更新されました', status: :see_other
+      redirect_to admins_meal_ket_path(@meal_ket), notice: 'ミールキットが正常に更新されました', status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class Admins::MealKetsController < Admins::ApplicationController
 
   def destroy
     @meal_ket.destroy!
-    redirect_to meal_kets_path, notice: '食材が正常に削除されました', status: :see_other
+    redirect_to meal_kets_path, notice: 'ミールキットが正常に削除されました', status: :see_other
   end
 
   private

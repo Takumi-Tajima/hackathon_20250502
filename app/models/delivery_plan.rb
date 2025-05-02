@@ -1,6 +1,9 @@
 class DeliveryPlan < ApplicationRecord
   extend Enumerize
 
+  has_many :user_plans, dependent: :restrict_with_error
+  has_many :users, through: :user_plans
+
   enumerize :delivery_frequency, in: {
     weekly: 'weekly',
     biweekly: 'biweekly',

@@ -5,6 +5,7 @@
         .navbar-brand.fs-2= link_to 'ユーザーの画面', root_path, class: 'text-decoration-none text-white'
         - if user_signed_in?
           = link_to '住所管理', users_addresses_path, class: 'ms-3 text-white text-decoration-none'
+          = link_to '契約中のプラン', users_user_plans_path, class: 'ms-3 text-white text-decoration-none'
           = link_to '配送プラン', users_delivery_plans_path, class: 'ms-3 text-white text-decoration-none'
       .d-flex.align-items-center
         - if user_signed_in?
