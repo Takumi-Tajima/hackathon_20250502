@@ -1,0 +1,17 @@
+.container.my-4
+  %h1.fs-2.mb-4 配送プラン一覧
+
+  - if @delivery_plans.exists?
+    .row.g-4
+      - @delivery_plans.each do |plan|
+        .col-md-4
+          .card.h-100
+            .card-body
+              %h5.card-title= plan.name
+              %p.card-text= plan.description
+              .badge.bg-primary.mb-2= plan.delivery_frequency_text
+              %h3.mb-3= number_to_currency(plan.price, unit: '¥', precision: 0)
+              = link_to '詳細を見る', users_delivery_plan_path(plan), class: 'btn btn-primary'
+  - else
+    .alert.alert-info
+      現在利用可能な配送プランはありません。

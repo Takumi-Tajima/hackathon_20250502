@@ -1,0 +1,20 @@
+.container.my-4
+  .mb-4
+    = link_to '配送プラン一覧に戻る', users_delivery_plans_path, class: 'btn btn-outline-secondary'
+
+  .card
+    .card-body
+      %h1.fs-2.card-title.mb-4= @delivery_plan.name
+      .row.mb-4
+        .col-md-8
+          .badge.bg-primary.mb-2= @delivery_plan.delivery_frequency_text
+          %p.card-text= @delivery_plan.description
+        .col-md-4.text-end
+          %h3= number_to_currency(@delivery_plan.price, unit: '¥', precision: 0)
+          %small.text-muted /回
+      .mb-3
+        %h4.fs-5 配送間隔
+        %p #{@delivery_plan.delivery_interval_days}日ごと
+
+      .text-center.mt-4
+        = link_to '配送プランを申し込む', '#', class: 'btn btn-lg btn-primary'
