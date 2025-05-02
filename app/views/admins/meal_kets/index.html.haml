@@ -1,0 +1,27 @@
+%h1.fs-2 食材一覧
+
+= link_to '食材新規作成', new_admins_meal_ket_path, class: 'btn btn-primary'
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Price
+      %th Is frozen
+      %th Published
+      %th
+      %th
+      %th
+
+  %tbody
+    - @meal_kets.each do |meal_ket|
+      %tr
+        %td= meal_ket.name
+        %td= meal_ket.description
+        %td= meal_ket.price
+        %td= meal_ket.is_frozen
+        %td= meal_ket.published
+        %td= link_to '詳細', admins_meal_ket_path(meal_ket), class: 'btn btn-primary'
+        %td= link_to '編集', edit_admins_meal_ket_path(meal_ket), class: 'btn btn-success'
+        %td= button_to '削除', admins_meal_ket_path(meal_ket), method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger'

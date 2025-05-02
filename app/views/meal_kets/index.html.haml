@@ -1,0 +1,16 @@
+%h1.fs-2 食材一覧
+
+.row
+  - @meal_kets.each do |meal_ket|
+    .col-md-4.mb-4
+      .card
+        .card-body
+          %h5.card-title= meal_ket.name
+          %p.card-text= meal_ket.description
+          %p.card-text
+            %strong 価格:
+            = number_to_currency(meal_ket.price)
+          %p.card-text
+            %strong 冷凍:
+            = meal_ket.is_frozen ? '冷凍食品' : '非冷凍食品'
+          = link_to '詳細', meal_ket_path(meal_ket), class: 'btn btn-primary'

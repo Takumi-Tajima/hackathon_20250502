@@ -1,0 +1,15 @@
+.container
+  %h1.fs-2= @meal_ket.name
+
+  .card.mb-4
+    .card-body
+      %h5.card-title 詳細情報
+      %dl.row
+        %dt.col-sm-3 説明
+        %dd.col-sm-9= @meal_ket.description
+        %dt.col-sm-3 価格
+        %dd.col-sm-9= number_to_currency(@meal_ket.price)
+        %dt.col-sm-3 保存方法
+        %dd.col-sm-9= @meal_ket.is_frozen ? '冷凍食品' : '非冷凍食品'
+
+  = link_to '戻る', meal_kets_path, class: 'btn btn-secondary'

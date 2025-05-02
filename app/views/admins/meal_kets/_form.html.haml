@@ -1,0 +1,10 @@
+= simple_form_for( [:admins, meal_ket] ) do |f|
+  = f.input :name
+  = f.input :description
+  = f.input :price
+  = f.input :is_frozen
+  = f.input :published, as: :boolean
+
+  .form-actions.mt-3
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to '戻る', meal_kets_path, class: 'btn btn-secondary ms-2'

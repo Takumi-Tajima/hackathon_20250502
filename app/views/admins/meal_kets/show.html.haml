@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @meal_ket.name
+%p
+  %b Description:
+  = @meal_ket.description
+%p
+  %b Price:
+  = @meal_ket.price
+%p
+  %b Is frozen:
+  = @meal_ket.is_frozen
+%p
+  %b Published:
+  = @meal_ket.published
+
+= link_to 'Edit', edit_admins_meal_ket_path(@meal_ket)
+\|
+= link_to 'Back', admins_meal_kets_path

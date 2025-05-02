@@ -2,6 +2,13 @@
 ja:
   activerecord:
     attributes:
+      meal_ket:
+        name: 名前
+        description: 説明
+        price: 金額
+        is_frozen: 冷凍食品
+        published: 公開
+        published_at: 公開ステータス
       user:
         name: 名前
         email: メールアドレス
