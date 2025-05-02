@@ -13,6 +13,18 @@ GIT
       rubocop-rspec (~> 3.5.0)
       rubocop-rspec_rails (~> 2.31.0)
 
+GIT
+  remote: https://github.com/heartcombo/devise
+  revision: fec67f98f26fcd9a79072e4581b1bd40d0c7fa1d
+  branch: main
+  specs:
+    devise (5.0.0.beta)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 6.0.0)
+      responders
+      warden (~> 1.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -91,6 +103,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.3)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
     bindex (0.8.1)
@@ -203,6 +216,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.8-x86_64-linux-musl)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     parallel (1.27.0)
     parser (3.3.8.0)
       ast (~> 2.4.1)
@@ -268,6 +282,9 @@ GEM
     regexp_parser (2.10.0)
     reline (0.6.1)
       io-console (~> 0.5)
+    responders (3.1.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.4.1)
     rspec-core (3.13.3)
       rspec-support (~> 3.13.0)
@@ -361,6 +378,8 @@ GEM
     uniform_notifier (1.16.0)
     uri (1.0.3)
     useragent (0.16.11)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -394,6 +413,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  devise!
   factory_bot_rails
   haml-rails
   haml_lint
