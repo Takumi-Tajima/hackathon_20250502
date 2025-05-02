@@ -3,7 +3,7 @@ class Users::UserPlansController < Users::ApplicationController
   before_action :set_user_plan, only: %i[destroy]
 
   def index
-    @user_plans = current_user.user_plans.default_order.includes(:delivery_plan)
+    @user_plans = current_user.user_plans.default_order.preload(:delivery_plan)
   end
 
   def new

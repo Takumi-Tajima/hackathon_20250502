@@ -57,7 +57,7 @@ class DeliveryPlan < ApplicationRecord
   private
 
   def maximum_plans_limit
-    return unless DeliveryPlan.count >= 3 && !persisted?
+    return unless new_record? && DeliveryPlan.count >= 3
 
     errors.add(:base, '配送プランは最大3つまでしか作成できません')
   end

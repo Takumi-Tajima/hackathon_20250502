@@ -10,7 +10,7 @@
           .badge.bg-primary.mb-2= @delivery_plan.delivery_frequency_text
           %p.card-text= @delivery_plan.description
         .col-md-4.text-end
-          %h3= number_to_currency(@delivery_plan.price, unit: '¥', precision: 0)
+          %h3= number_to_currency(@delivery_plan.price)
           %small.text-muted /回
       .mb-3
         %h4.fs-5 配送間隔

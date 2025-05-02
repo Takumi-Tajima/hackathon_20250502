@@ -2,7 +2,7 @@ class Users::OrdersController < Users::ApplicationController
   before_action :set_active_plan, only: %i[new create]
 
   def index
-    @orders = current_user.orders.default_order.includes(:order_items, :meal_kets)
+    @orders = current_user.orders.default_order.preload(:order_items, :meal_kets)
   end
 
   def show
@@ -14,7 +14,7 @@ class Users::OrdersController < Users::ApplicationController
       user_plan: @active_plan,
       delivery_date: next_available_delivery_date
     )
-    @meal_kets = MealKet.published.order(:name)
+    @meal_kets = MealKet.published.default_order
   end
 
   def create
@@ -24,7 +24,7 @@ class Users::OrdersController < Users::ApplicationController
     if @order.save
       redirect_to users_order_path(@order), notice: '注文を受け付けました'
     else
-      @meal_kets = MealKet.published.order(:name)
+      @meal_kets = MealKet.published.default_order
       render :new, status: :unprocessable_entity
     end
   end
@@ -39,13 +39,10 @@ class Users::OrdersController < Users::ApplicationController
   end
 
   def next_available_delivery_date
-    Date.current.next_day(3) # 最短3日後から配送可能と仮定
+    Date.current.next_day(3)
   end
 
   def order_params
-    params.require(:order).permit(
-      :delivery_date,
-      order_items_attributes: %i[meal_ket_id quantity price]
-    )
+    params.expect(order: [:delivery_date, { order_items_attributes: %i[meal_ket_id quantity price] }])
   end
 end

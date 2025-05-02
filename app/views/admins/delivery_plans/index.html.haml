@@ -19,16 +19,17 @@
             %tr
               %td= plan.name
               %td= plan.delivery_frequency_text
-              %td= number_to_currency(plan.price, unit: '¥', precision: 0)
+              %td= number_to_currency(plan.price)
               %td= plan.published? ? '公開中' : '非公開'
               %td
                 .btn-group
                   = link_to '詳細', admins_delivery_plan_path(plan), class: 'btn btn-sm btn-outline-primary'
                   = link_to '編集', edit_admins_delivery_plan_path(plan), class: 'btn btn-sm btn-outline-secondary'
-                  .ms-4= button_to '削除', admins_delivery_plan_path(plan), method: :delete, data: { turbo_confirm: '削除します、よろしいですか？' }, class: 'btn btn-sm btn-outline-danger'
+                  .ms-4
+                    = button_to '削除', admins_delivery_plan_path(plan), method: :delete, data: { turbo_confirm: '削除します、よろしいですか？' }, class: 'btn btn-sm btn-outline-danger'
   - else
     .alert.alert-info
-      %p.mb-0
+      .mt-2
         配送プランが登録されていません。
         = link_to '新規作成', new_admins_delivery_plan_path, class: 'alert-link'
         から配送プランを登録してください。

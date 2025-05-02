@@ -10,7 +10,7 @@
               %h5.card-title= plan.name
               %p.card-text= plan.description
               .badge.bg-primary.mb-2= plan.delivery_frequency_text
-              %h3.mb-3= number_to_currency(plan.price, unit: '¥', precision: 0)
+              %h3.mb-3= number_to_currency(plan.price)
               = link_to '詳細を見る', users_delivery_plan_path(plan), class: 'btn btn-primary'
   - else
     .alert.alert-info
