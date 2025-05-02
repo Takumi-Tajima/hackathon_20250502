@@ -1,22 +1,32 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "rails", "~> 8.0.1"
+gem 'rails', '~> 8.0.1'
 
-gem "propshaft"
-gem "pg"
-gem "puma"
-gem "jsbundling-rails"
-gem "turbo-rails"
-gem "stimulus-rails"
-gem "cssbundling-rails"
+gem 'cssbundling-rails'
+gem 'haml-rails'
+gem 'jsbundling-rails'
+gem 'pg'
+gem 'propshaft'
+gem 'puma'
+gem 'simple_form'
+gem 'stimulus-rails'
+gem 'turbo-rails'
 
-gem "bootsnap", require: false
+gem 'bootsnap', require: false
 
 group :development, :test do
-  gem "debug"
-  gem "brakeman", require: false
+  gem 'brakeman', require: false
+  gem 'bullet'
+  gem 'debug'
+  gem 'factory_bot_rails'
+  gem 'haml_lint'
+  gem 'html2haml'
+  gem 'rspec-rails'
+  gem 'sgcop', github: 'SonicGarden/sgcop', branch: 'main'
 end
 
 group :development do
-  gem "web-console"
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'web-console'
 end
