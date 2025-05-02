@@ -6,6 +6,7 @@ gem 'cssbundling-rails'
 # リリースされているdevseiがrails8に対応していないため、mainブランチを指定
 gem 'devise', git: 'https://github.com/heartcombo/devise', branch: 'main'
 gem 'haml-rails'
+gem 'jp_prefecture'
 gem 'jsbundling-rails'
 gem 'kaminari'
 gem 'pg'

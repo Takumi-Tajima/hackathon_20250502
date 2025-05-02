@@ -1,0 +1,12 @@
+= simple_form_for [:users, address] do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :region, collection: JpPrefecture::Prefecture.all, label_method: :name, value_method: :code,
+      prompt: '都道府県を選択してください', label: '都道府県'
+    = f.input :detail, label: '詳細住所'
+    = f.input :is_primary, as: :boolean, label: 'プライマリー住所として設定'
+
+  .form-actions.mt-4
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to '戻る', users_addresses_path, class: 'btn btn-outline-secondary ms-2'

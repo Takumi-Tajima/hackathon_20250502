@@ -1,0 +1,29 @@
+.container.mt-4
+  %h1.mb-4 住所一覧
+  = link_to '新規住所登録', new_users_address_path, class: 'btn btn-primary mb-4'
+
+  - if @addresses.exists?
+    .table-responsive
+      %table.table.table-striped.table-bordered
+        %thead.table-light
+          %tr
+            %th 都道府県
+            %th 詳細
+            %th プライマリー
+            %th
+        %tbody
+          - @addresses.each do |address|
+            %tr
+              %td= address.prefecture.name
+              %td= address.detail
+              %td= address.is_primary ? '○' : ''
+              %td
+                .d-flex.gap-2
+                  = link_to '編集', edit_users_address_path(address), class: 'btn btn-sm btn-outline-primary'
+                  = button_to '削除', users_address_path(address), method: :delete, class: 'btn btn-sm btn-outline-danger',
+                    data: { turbo_confirm: '本当に削除しますか？' }
+  - else
+    .alert.alert-info
+      住所が登録されていません。
+      = link_to '新規住所登録', new_users_address_path, class: 'alert-link'
+      から登録してください。

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :meal_kets, only: %i[index show]
 
+  namespace :users do
+    resources :addresses, only: %i[index new create edit update destroy]
+  end
+
   namespace :admins do
     root 'meal_kets#index'
     resources :meal_kets, only: %i[index show new create edit update destroy]

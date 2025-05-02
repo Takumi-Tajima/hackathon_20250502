@@ -1,4 +1,12 @@
 .navbar.bg-danger
   .container-fluid
-    .d-flex.align-items-center
-      .navbar-brand.fs-2= link_to 'ユーザーの画面', class: 'text-decoration-none text-white'
+    .d-flex.align-items-center.justify-content-between.w-100
+      .d-flex.align-items-center
+        .navbar-brand.fs-2= link_to 'ユーザーの画面', root_path, class: 'text-decoration-none text-white'
+        - if user_signed_in?
+          = link_to '住所管理', users_addresses_path, class: 'ms-3 text-white text-decoration-none'
+      .d-flex.align-items-center
+        - if user_signed_in?
+          = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-outline-light', form: { class: 'mb-0' }
+        - else
+          = link_to 'ログイン', new_user_session_path, class: 'btn btn-outline-light'
