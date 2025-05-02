@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   namespace :admins do
     root 'meal_kets#index'
     resources :meal_kets, only: %i[index show new create edit update destroy]
+    resources :delivery_plans, only: %i[index show new create edit update destroy]
   end
 end

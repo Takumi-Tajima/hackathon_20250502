@@ -1,7 +1,20 @@
 ---
 ja:
+  enumerize:
+    delivery_plan:
+      delivery_frequency:
+        weekly: '1週間に1回'
+        biweekly: '2週間に1回'
+        triweekly: '3週間に1回'
+        monthly: '4週間に1回'
   activerecord:
     attributes:
+      delivery_plan:
+        name: プラン名
+        description: 説明
+        delivery_frequency: 配送頻度
+        price: 価格
+        published: 公開ステータス
       meal_ket:
         name: 名前
         description: 説明

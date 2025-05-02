@@ -135,6 +135,8 @@ GEM
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
     drb (2.2.1)
+    enumerize (2.8.1)
+      activesupport (>= 3.2)
     erubi (1.13.1)
     erubis (2.7.0)
     factory_bot (6.5.1)
@@ -427,6 +429,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise!
+  enumerize
   factory_bot_rails
   haml-rails
   haml_lint

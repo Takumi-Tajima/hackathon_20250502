@@ -1,0 +1,34 @@
+.container
+  .d-flex.justify-content-between.align-items-center.mb-4
+    %h1.fs-2 配送プラン一覧
+    = link_to '新規作成', new_admins_delivery_plan_path, class: 'btn btn-primary'
+
+  - if @delivery_plans.exists?
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th プラン名
+            %th 配送頻度
+            %th 価格
+            %th ステータス
+            %th
+
+        %tbody
+          - @delivery_plans.each do |plan|
+            %tr
+              %td= plan.name
+              %td= plan.delivery_frequency_text
+              %td= number_to_currency(plan.price, unit: '¥', precision: 0)
+              %td= plan.published? ? '公開中' : '非公開'
+              %td
+                .btn-group
+                  = link_to '詳細', admins_delivery_plan_path(plan), class: 'btn btn-sm btn-outline-primary'
+                  = link_to '編集', edit_admins_delivery_plan_path(plan), class: 'btn btn-sm btn-outline-secondary'
+                  .ms-4= button_to '削除', admins_delivery_plan_path(plan), method: :delete, data: { turbo_confirm: '削除します、よろしいですか？' }, class: 'btn btn-sm btn-outline-danger'
+  - else
+    .alert.alert-info
+      %p.mb-0
+        配送プランが登録されていません。
+        = link_to '新規作成', new_admins_delivery_plan_path, class: 'alert-link'
+        から配送プランを登録してください。

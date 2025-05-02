@@ -1,0 +1,14 @@
+= simple_form_for [:admins, delivery_plan] do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :delivery_frequency, collection: DeliveryPlan.delivery_frequency.options
+    = f.input :price
+    = f.input :published
+
+  .form-actions.mt-4
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to 'キャンセル', admins_delivery_plans_path, class: 'btn btn-secondary ms-2'
